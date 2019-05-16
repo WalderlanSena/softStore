@@ -5,8 +5,10 @@
  * @code: https://www.github.com/WalderlanSena
  */
 return [
-    'host'      => 'localhost',
-    'user'      => '',
-    'password'  => '',
-    'db_name'   => ''
+    'postgresql' => [
+        'host'      => 'localhost',
+        'user'      => 'walderlan',
+        'password'  => '12345',
+        'dbName'   => 'soft'
+    ]
 ];

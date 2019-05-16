@@ -2,6 +2,8 @@
 
 namespace App\SoftStore\System;
 
+use App\SoftStore\System\DI\DependencyInjection;
+
 abstract class Kernel
 {
     protected $routes;
@@ -19,10 +21,8 @@ abstract class Kernel
 
     public function init(string $url)
     {
-//        $request           = explode("/", $url);
-        $this->params      = [];
-//        $countRouteRequest = count($request);
-        $routeFound        = false;
+        $this->params = [];
+        $routeFound   = false;
         $action = '';
 
         foreach ($this->routes as $route) {
@@ -43,8 +43,8 @@ abstract class Kernel
                 }
             }
         }
-        echo 'Página não encontrada...';
-        return [];
+
+       return DependencyInjection::pageNotFound();
     }
 
     protected function getUrl()

@@ -16,6 +16,7 @@
     "autoload": {
         "psr-4": {
             "App\\SoftStore\\": "src/",
+            "App\\SoftStore\\Config\\": "config/",
             "App\\SoftStore\\System\\": "system/"
         }
     }
