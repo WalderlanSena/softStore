@@ -1,0 +1,23 @@
+{
+    "name": "walderlan/project",
+    "description": "Test SoftExpert",
+    "type": "project",
+    "require": {
+        "php": ">=7.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Walderlan Sena",
+            "email": "senawalderlan@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "App\\SoftStore\\": "src/",
+            "App\\SoftStore\\System\\": "system/"
+        }
+    }
+}
+
