@@ -17,13 +17,13 @@
     }
 </style>
 
-<form class="form-signin text-center" action="/authentication" method="post">
+<form class="form-signin text-center" action="/authentication" method="POST">
     <img class="mb-4" src="/assets/img/logo.png" alt="" width="250">
 <!--    <h1 class="h3 mb-3 font-weight-normal text-center">Please Sign in</h1>-->
     <label for="inputEmail" class="sr-only">Digite seu e-mail</label>
-    <input type="email" id="inputEmail" class="form-control" placeholder="Digite seu Login" required autofocus>
+    <input type="email" name="login" id="inputEmail" class="form-control" placeholder="Digite seu Login" required autofocus>
     <label for="inputPassword" class="sr-only">Digite sua senha</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Digite sua senha" required>
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Digite sua senha" required>
     <button class="btn btn-lg btn-dark btn-block" style="background-color: #8f2fcc !important; border: #8f2fcc !important;" type="submit"><i class="fas fa-sign-in-alt"></i> Entrar</button>
     <p class="mt-5 mb-3 text-muted text-center">&copy; 2019 <br> Desenvolvido por: <a href="https://www.github.com/walderlansena" target="_blank">
             Walderlan Sena

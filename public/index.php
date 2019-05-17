@@ -5,6 +5,8 @@
  * @source
  */
 
+session_start();
+
 require_once __DIR__.'/../vendor/autoload.php';
 
 use App\SoftStore\System\Router\Router;

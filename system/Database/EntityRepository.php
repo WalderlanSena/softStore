@@ -46,6 +46,10 @@ abstract class EntityRepository
         $orderBy = $orderBy ?? '';
         $limit   = $limit   ?? '';
 
+        if (empty($filter)) {
+            $filter = "*";
+        }
+
         try {
             return $this->connect->query(
                 "SELECT {$filter} FROM {$this->entity} {$where} {$orderBy} {$limit}")

@@ -3,6 +3,9 @@
 namespace App\SoftStore\System;
 
 use App\SoftStore\System\DI\DependencyInjection;
+use App\SoftStore\System\Http\Request;
+use App\SoftStore\System\Redirect\Redirect;
+use App\SoftStore\System\Session\SessionHandler;
 
 abstract class Kernel
 {
@@ -32,12 +35,16 @@ abstract class Kernel
                 $action           = $route['action'];
             }
 
+            if ($routeFound && $route['auth'] && !SessionHandler::getSession('user')) {
+                return Redirect::redirectToRoute('/');
+            }
+
             if ($routeFound) {
                 try {
                     $reflection = new \ReflectionClass($this->controller);
                     $reflection->newInstance();
                     $controller = $reflection->newInstance();
-                    return $controller->$action();
+                    return $controller->$action(new Request());
                 } catch (\Exception $exception) {
 
                 }

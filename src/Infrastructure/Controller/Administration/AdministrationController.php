@@ -12,11 +12,7 @@ class AdministrationController extends AbstractController
 
     public function __construct()
     {
-        try {
-            $this->authenticationService = DependencyInjection::getService(AuthenticationService::class);
-        } catch (\Exception $exception) {
-            echo $exception->getMessage();
-        }
+        $this->authenticationService = DependencyInjection::getService(AuthenticationService::class);
     }
 
     public function home()
