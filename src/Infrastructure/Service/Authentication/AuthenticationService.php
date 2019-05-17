@@ -17,6 +17,10 @@ class AuthenticationService implements AuthenticationServiceInterface
 
     public function find()
     {
-        var_dump($this->authenticationRepository->findBy(['login', 'id'],null,' ORDER BY id DESC'));
+        try {
+            var_dump($this->authenticationRepository->findBy(['login', 'id'],null,' ORDER BY id DESC'));
+        } catch (\Exception $exception) {
+            throw new \Exception($exception->getMessage());
+        }
     }
 }

@@ -13,22 +13,23 @@ return [
             'route'         => '/',
             'controller'    => HomeController::class,
             'action'        => 'index',
-            'method'        => ['GET'],
+            'methods'       => ['GET'],
             'auth'          => false
         ],
 
-        'admin' => [
+        'order-1' => [
             'route'         => '/administracao',
             'controller'    => AdministrationController::class,
             'action'        => 'home',
-            'method'        => ['GET'],
+            'methods'       => ['GET'],
             'auth'          => true
         ],
+
         'order' => [
             'route'         => '/administracao/cadastrar-novo-pedido',
             'controller'    => OrderController::class,
             'action'        => 'registerNewOrder',
-            'method'        => ['GET'],
+            'methods'       => ['GET'],
             'auth'          => true
         ],
     ],

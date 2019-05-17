@@ -12,13 +12,20 @@ class AdministrationController extends AbstractController
 
     public function __construct()
     {
-        $this->authenticationService = DependencyInjection::getService(AuthenticationService::class);
+        try {
+            $this->authenticationService = DependencyInjection::getService(AuthenticationService::class);
+        } catch (\Exception $exception) {
+            echo $exception->getMessage();
+        }
     }
 
     public function home()
     {
-        return $this->render('admin/administration',[
+        return $this->render('admin/administration');
+    }
 
-        ]);
+    public function registerNewOrder()
+    {
+        return $this->render('order/order-register',[]);
     }
 }
