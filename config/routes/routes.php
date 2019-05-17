@@ -17,7 +17,7 @@ return [
             'auth'          => false
         ],
 
-        'order-1' => [
+        'order' => [
             'route'         => '/administracao',
             'controller'    => AdministrationController::class,
             'action'        => 'home',
@@ -25,7 +25,7 @@ return [
             'auth'          => true
         ],
 
-        'order' => [
+        'order-new-order' => [
             'route'         => '/administracao/cadastrar-novo-pedido',
             'controller'    => OrderController::class,
             'action'        => 'registerNewOrder',
