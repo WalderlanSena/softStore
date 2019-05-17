@@ -72,4 +72,9 @@ abstract class EntityRepository
             throw new \Exception($exception->getMessage());
         }
     }
+
+    public function getConnectionManager()
+    {
+        return $this->connect;
+    }
 }

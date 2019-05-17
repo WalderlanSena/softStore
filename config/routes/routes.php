@@ -49,5 +49,13 @@ return [
             'methods'       => ['GET'],
             'auth'          => true
         ],
+
+        'save-order-new-order' => [
+            'route'         => '/administracao/cadastrar-novo-pedido/salvar',
+            'controller'    => OrderController::class,
+            'action'        => 'saveOrder',
+            'methods'       => ['POST'],
+            'auth'          => true
+        ],
     ],
 ];

@@ -1,4 +1,4 @@
 <?php include_once "header.phtml";
-    $this->content();
+    $this->content($data);
 ?>
 <?php include_once "footer.phtml"; ?>

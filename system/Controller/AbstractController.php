@@ -3,6 +3,7 @@
 namespace App\SoftStore\System\Controller;
 
 use App\SoftStore\System\DI\DependencyInjection;
+use App\SoftStore\System\Session\SessionHandler;
 
 abstract class AbstractController
 {
@@ -24,19 +25,22 @@ abstract class AbstractController
     public function render(string $view, array $data = [], bool $template = true)
     {
         $this->view = $view;
+        $data['user'] = SessionHandler::getSession('user');
         extract($data);
         if ($template && file_exists($this->getTemplateDefault())) {
             return include $this->getTemplateDefault();
         }
-
+        $this->content($data);
         return DependencyInjection::pageNotFound();
     }
 
     /**
+     * @param $data
      * @return mixed
      */
-    public function content()
+    public function content($data)
     {
+        extract($data);
         return include __DIR__."/../../templates/".$this->view.".phtml";
     }
 }
