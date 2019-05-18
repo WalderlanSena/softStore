@@ -1,5 +1,9 @@
-# SoftExpert
-SoftExpert Sistema de gerenciamento de pedidos com imposto e valor final.
+<p align="center">
+  <img src="https://github.com/WalderlanSena/softExpert/blob/master/public/assets/img/logo.png" width="400">
+  <br>
+  SoftExpert Sistema de gerenciamento de pedidos com imposto e valor final.
+</p>
+
 
 ## Observação
 O sistema é feito sem a utilização de framework para demostrar o processo de desenvolvimento básico 
