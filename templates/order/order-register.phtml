@@ -8,40 +8,7 @@
             </h3>
         </div>
 
-        <ul class="list-unstyled components">
-            <p><i class="fas fa-tachometer-alt"></i> Dashboard</p>
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>
-                        <a href="#">Home 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 3</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">About</a>
-            </li>
-            <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
-                        <a href="#">Page 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 3</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+        <?php include_once  __DIR__. '/../themes/admin/menu.phtml'?>
 
         <ul class="list-unstyled CTAs">
             <!--            <li>-->
@@ -68,7 +35,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#"><?= $user['login'] ?></a>
+                            <a class="nav-link" href="#"><?= $user['login'] ?? '' ?></a>
                         </li>
                         <!--                        <li class="nav-item">-->
                         <!--                            <a class="nav-link" href="#">Page</a>-->
@@ -83,7 +50,14 @@
                 </div>
             </div>
         </nav>
-
+        <?php
+            $message = \App\SoftStore\System\Session\SessionHandler::getSession('success-order');
+            if ($message):
+        ?>
+        <div class="alert alert-success <?php if ($message): ?>animated fadeInDown<?php endif; ?>" role="alert">
+            <h4 class="text-center"><?= $message ?></h4>
+        </div>
+        <?php endif; \App\SoftStore\System\Session\SessionHandler::destroySession('success-order'); ?>
         <div class="card">
             <div class="card-header bg-dark text-white">
                 <h4><i class="fas fa-plus"></i> Cadastrar Pedido</h4>
@@ -92,6 +66,7 @@
                 <form action="/administracao/cadastrar-novo-pedido/salvar" method="POST">
                     <div class="container">
                         <div class="row">
+                            <input name="id_customer" type="hidden" value="<?= $user['customer_id'] ?? ''?>">
                             <div class="col-md-4">
                                 <label for="pedido" class="col-form-label">Pedido</label>
                                 <input type="text" class="form-control" placeholder="Nome do pedido" name="pedido" value="">

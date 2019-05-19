@@ -36,6 +36,7 @@ class OrderService
             'valor'         => filter_var((float)$request['valor'], FILTER_SANITIZE_NUMBER_FLOAT),
             'quantidade'    => filter_var((int)$request['valor'], FILTER_SANITIZE_NUMBER_INT),
             'imposto'       => filter_var((int)$request['imposto'], FILTER_SANITIZE_NUMBER_INT),
+            'id_customer'   => filter_var((int)$request['id_customer'], FILTER_SANITIZE_NUMBER_INT),
         ];
     }
 }

@@ -28,15 +28,20 @@ class AuthenticationController extends AbstractController
         try {
             $this->authenticationService->authenticate($request['login'] ?? '', $request['password'] ?? '');
         } catch (\Exception $exception) {
-            die($exception->getMessage());
+            Redirect::redirectToRoute('/', [
+                'error' => $exception->getMessage(),
+                'email' => $request['login']
+            ]);
         }
 
-        Redirect::redirectToRoute('/administracao',['Logando com sucesso !']);
+        Redirect::redirectToRoute('/administracao', ['success' => 'Logando com sucesso !']);
     }
 
     public function logout()
     {
-        SessionHandler::destroySession('user');
-        return Redirect::redirectToRoute('/');
+        SessionHandler::destroySession(['user','error']);
+        return Redirect::redirectToRoute('/', [
+            'message' => 'Até mais :)'
+        ]);
     }
 }

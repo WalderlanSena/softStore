@@ -33,7 +33,7 @@ abstract class DependencyInjection
 
     public static function pageNotFound()
     {
-        return include __DIR__ . '/../../templates/errors/404/pageNotFound.phtml.php';
+        return include __DIR__ . '/../../templates/errors/404/pageNotFound.phtml';
     }
 
     public static function accessDenied()

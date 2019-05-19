@@ -9,6 +9,9 @@ use App\SoftStore\System\Session\SessionHandler;
 
 class AuthenticationService implements AuthenticationServiceInterface
 {
+    /**
+     * @var AuthenticationRepository $authenticationRepository
+     */
     private $authenticationRepository;
 
     public function __construct()
@@ -16,23 +19,29 @@ class AuthenticationService implements AuthenticationServiceInterface
         $this->authenticationRepository = DependencyInjection::getRepository(AuthenticationRepository::class);
     }
 
+    /**
+     * @param string $login
+     * @param string $password
+     * @return bool
+     * @throws \Exception
+     */
     public function authenticate(string $login, string $password)
     {
-        $login = filter_var($login, FILTER_SANITIZE_STRING);
-        $senha = filter_var($password, FILTER_SANITIZE_STRING);
+        $login    = filter_var($login, FILTER_SANITIZE_STRING);
+        $password = filter_var($password, FILTER_SANITIZE_STRING);
 
         try {
-           $user = $this->authenticationRepository->findBy([]," WHERE login = '{$login}'");
+           $user = $this->authenticationRepository->authentication($login);
         } catch (\Exception $exception) {
             throw new \Exception($exception->getMessage());
         }
 
-        if (count($user) < 1 || !password_verify($senha, $user[0]['password'])) {
+        if (empty($user) || !password_verify($password, $user['password'] ?? '')) {
             throw new \Exception('Usuário ou senha ínvalido !');
         }
 
-        SessionHandler::setSession('user', $user[0]);
+        SessionHandler::setSession('user', $user);
 
-        return $user[0] ?? $user;
+        return $user;
     }
 }
