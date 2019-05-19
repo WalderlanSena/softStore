@@ -27,4 +27,4 @@ de uma aplicação seguindo alguns dos principios universais das boas práticas.
 
 ## Licença
 
-MIT
+**SoftExpert** é software livre você pode redistribuí-lo e / ou modificá-lo sob os termos do **MIT**
