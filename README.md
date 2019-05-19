@@ -24,6 +24,10 @@ de uma aplicação seguindo alguns dos principios universais das boas práticas.
   <img src="https://github.com/WalderlanSena/softExpert/blob/master/public/artes/login.png"/>
 </p>
 
+##### Cadastro de pedidos
+<p align="center">
+  <img src="https://github.com/WalderlanSena/softExpert/blob/master/public/artes/pedidos.png"/>
+</p>
 
 ## Licença
 
