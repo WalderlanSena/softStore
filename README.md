@@ -1,7 +1,7 @@
 <p align="center">
   <img src="https://github.com/WalderlanSena/softExpert/blob/master/public/assets/img/logo.png" width="400">
   <br>
-  SoftExpert Sistema de gerenciamento de pedidos com imposto e valor final.
+  SoftStore Sistema de gerenciamento de pedidos com imposto e valor final.
 </p>
 
 
@@ -31,4 +31,4 @@ de uma aplicação seguindo alguns dos principios universais das boas práticas.
 
 ## Licença
 
-**SoftExpert** é software livre você pode redistribuí-lo e / ou modificá-lo sob os termos do **MIT**
+**SoftStore** é software livre você pode redistribuí-lo e / ou modificá-lo sob os termos do **MIT**
